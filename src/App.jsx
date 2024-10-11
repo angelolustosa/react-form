@@ -1,4 +1,5 @@
 import './App.css'
+import { Input } from './components/input/Input'
 
 function App() {
 
@@ -8,15 +9,26 @@ function App() {
         <h2>Cadastro de Pessoa</h2>
 
         <form className='row g-3'>
-          <div className="col-md-6">
+
+          <Input
+            label='Nome Completo'
+            id='nomeCompleto'
+          />
+
+          <Input
+            label='Nome Mãe'
+            id='nomeMae'
+          />
+
+          {/* <div className="col-md-6">
             <label htmlFor="nomeCompleto" className="form-label">Nome Completo</label>
             <input type="text" className="form-control" id="nomeCompleto" />
-          </div>
+          </div> */}
 
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             <label htmlFor="nomeMae" className="form-label">Nome Mãe</label>
             <input type="text" className="form-control" id="nomeMae" />
-          </div>
+          </div> */}
 
           <div className="col-md-2">
             <label htmlFor="dataNascimento" className="form-label">Data Nascimento</label>
