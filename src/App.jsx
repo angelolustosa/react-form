@@ -1,5 +1,6 @@
 import './App.css'
 import { Input } from './components/input/Input'
+import { Select } from './components/input/Select'
 
 function App() {
 
@@ -20,71 +21,72 @@ function App() {
             id='nomeMae'
           />
 
-          {/* <div className="col-md-6">
-            <label htmlFor="nomeCompleto" className="form-label">Nome Completo</label>
-            <input type="text" className="form-control" id="nomeCompleto" />
-          </div> */}
+          <Input
+            inputSize={2}
+            label='Data Nascimento'
+            id='dataNascimento'
+            type='date'
+          />
 
-          {/* <div className="col-md-6">
-            <label htmlFor="nomeMae" className="form-label">Nome Mãe</label>
-            <input type="text" className="form-control" id="nomeMae" />
-          </div> */}
+          <Input
+            inputSize={5}
+            label='Email'
+            id='email'
+            type='email'
 
-          <div className="col-md-2">
-            <label htmlFor="dataNascimento" className="form-label">Data Nascimento</label>
-            <input type="date" className="form-control" id="dataNascimento" />
-          </div>
+          />
 
-          <div className="col-md-5">
-            <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" className="form-control" id="email" />
-          </div>
+          <Input
+            inputSize={5}
+            label='Senha'
+            id='senha'
+            type='password'
+          />
 
-          <div className="col-md-5">
-            <label htmlFor="senha" className="form-label">Senha</label>
-            <input type="password" className="form-control" id="senha" />
-          </div>
+          <Input
+            inputSize={4}
+            label='CEP'
+            id='cep'
+            type='text'
+          />
 
-          <div className="col-md-4">
-            <label htmlFor="cep" className="form-label">CEP</label>
-            <input type="text" className="form-control" id="cep" />
-          </div>
 
-          <div className="col-md-8">
-            <label htmlFor="endereco" className="form-label">Endereço</label>
-            <input type="text" className="form-control" id="endereco" />
-          </div>
+          <Input
+            inputSize={8}
+            label='Endereço'
+            id='endereco'
+          />
 
-          <div className="col-md-1">
-            <label htmlFor="numero" className="form-label">Número</label>
-            <input type="text" className="form-control" id="numero" />
-          </div>
+          <Input
+            inputSize={1}
+            label='Número'
+            id='numero'
+            type='number'
+          />
 
-          <div className="col-md-11">
-            <label htmlFor="complemento" className="form-label">Complemento</label>
-            <input type="text" className="form-control" id="complemento" />
-          </div>
+          <Input
+            inputSize={11}
+            label='Complemento'
+            id='complemento'
+          />
 
-          <div className="col-md-4">
-            <label htmlFor="bairro" className="form-label">Bairro</label>
-            <input type="text" className="form-control" id="bairro" />
-          </div>
+          <Input
+            inputSize={4}
+            label='Bairro'
+            id='bairro'
+          />
 
-          <div className="col-md-4">
-            <label htmlFor="estado" className="form-label">Estado</label>
-            <select id="estado" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div>
+          <Select
+            label='Estado'
+            id='estado'
+          />
 
-          <div className="col-md-4">
-            <label htmlFor="cidade" className="form-label">Cidade</label>
-            <select id="cidade" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div>
+          <Select
+            label='Cidade'
+            id='cidade'
+          />
+
+
         </form>
       </main>
     </>
