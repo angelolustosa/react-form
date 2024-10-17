@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css'
 import { Button } from './components/button/Button'
 import { Input } from './components/input/Input'
@@ -7,11 +7,12 @@ import { Select } from './components/input/Select'
 function App() {
   const [nomeCompleto, setNomeCompleto] = useState('');
   const [nomeMae, setNomeMae] = useState('');
+  const inputRef = useRef(null);
 
   const enviar = e => {
     //evita que a tela carregue depois de clicar no botão submit do form
     e.preventDefault();
-    console.log('Form:', nomeCompleto, nomeMae);
+    console.log('Form:', nomeCompleto, nomeMae, /* inputRef.current.value */);
   }
 
   return (
@@ -78,6 +79,7 @@ function App() {
             label='Número'
             id='numero'
             type='number'
+            //ref={inputRef}
           />
 
           <Input
