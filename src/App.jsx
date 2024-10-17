@@ -1,24 +1,41 @@
+import { useState } from 'react';
 import './App.css'
+import { Button } from './components/button/Button'
 import { Input } from './components/input/Input'
 import { Select } from './components/input/Select'
 
 function App() {
+  const [nomeCompleto, setNomeCompleto] = useState('');
+  const [nomeMae, setNomeMae] = useState('');
+
+  const enviar = e => {
+    //evita que a tela carregue depois de clicar no botão submit do form
+    e.preventDefault();
+    console.log('Form:', nomeCompleto, nomeMae);
+  }
 
   return (
     <>
       <main className="form-pessoa">
         <h2>Cadastro de Pessoa</h2>
 
-        <form className='row g-3'>
-
+        <form className='row g-3' onSubmit={enviar}>
           <Input
             label='Nome Completo'
             id='nomeCompleto'
+            handleChange={(e) =>{ 
+              console.log(e.target.value)
+              setNomeCompleto(e.target.value)  // atualiza o state com o novo valor digitado no input
+            }}
           />
 
           <Input
             label='Nome Mãe'
             id='nomeMae'
+            handleChange={(e) =>{ 
+              console.log(e.target.value)
+              setNomeMae(e.target.value)  // atualiza o state com o novo valor digitado no input
+            }}
           />
 
           <Input
@@ -49,7 +66,6 @@ function App() {
             id='cep'
             type='text'
           />
-
 
           <Input
             inputSize={8}
@@ -86,7 +102,8 @@ function App() {
             id='cidade'
           />
 
-
+          <Button type='submit' label='Salvar' />
+          <Button type='reset' variant='light' label='Limpar' />
         </form>
       </main>
     </>
