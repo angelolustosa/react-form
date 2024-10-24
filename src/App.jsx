@@ -117,6 +117,11 @@ function App() {
 
           <Button type='submit' label='Salvar' />
           <Button type='reset' variant='light' label='Limpar' />
+
+          <div className='mt-4' style={{ color: 'antiquewhite', textAlign: 'left'}}>
+            <h3>Dados do JSON:</h3>
+            <pre>{JSON.stringify(formData, null, 2)}</pre>
+          </div>
         </form>
       </main>
     </>
