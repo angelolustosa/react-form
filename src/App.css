@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-h2 {
+h2, h3 {
   color: aliceblue;
   margin-top: 1em;
   margin-bottom: 2em;
@@ -14,6 +14,22 @@ h2 {
 label {
   color: aliceblue;
   float: left !important;
+}
+
+button {
+  color: aliceblue;
+  float: left !important;
+}
+
+h3 {
+  color: aliceblue;
+  margin-top: 2em;
+  text-align: start;
+}
+
+#json {
+  color: antiquewhite;
+  text-align: start;
 }
 
 .logo {
