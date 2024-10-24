@@ -10,15 +10,11 @@ function App() {
 
 
   const handleChange = (e) => {
-    /* formData.nomeCompleto = 12
-    formData['nomeMae'] */
-
     console.log(e.target.id, e.target.value);
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
 
   const enviar = e => {
-    //evita que a tela carregue depois de clicar no botão submit do form
     e.preventDefault();
     console.log('Form:', formData);
   }
@@ -85,7 +81,6 @@ function App() {
             label='Número'
             id='numero'
             type='number'
-            //ref={inputRef}
             handleChange={handleChange}
           />
 
@@ -116,7 +111,7 @@ function App() {
           />
 
           <Button type='submit' label='Salvar' />
-          <Button type='reset' variant='light' label='Limpar' />
+          <Button type='reset' variant='light' label='Limpar' onClick={() => setFormData({})} />
 
           <div className='mt-4' style={{ color: 'antiquewhite', textAlign: 'left'}}>
             <h3>Dados do JSON:</h3>
