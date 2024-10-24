@@ -4,6 +4,7 @@ import { Button } from './components/button/Button'
 import { Input } from './components/input/Input'
 import { Select } from './components/input/Select'
 import axios from 'axios';
+import { maskCep } from './util/cep';
 
 function App() {
   const inputRef = useRef(null);
@@ -11,8 +12,15 @@ function App() {
 
 
   const handleChange = (e) => {
-    console.log(e.target.id, e.target.value);
-    setFormData({ ...formData, [e.target.id]: e.target.value })
+    const { id, value } = e.target;
+    //console.log(id, value);
+
+    if (id === 'cep') {
+      setFormData({ ...formData, cep: maskCep(value) })
+    } else {
+      setFormData({ ...formData, [id]: value })
+
+    }
   }
 
   const enviar = e => {
@@ -39,8 +47,8 @@ function App() {
 
   useEffect(() => {
     // '?' O interrogação antes de uma propriedade ou função ser chamada, faz um check se existe, acessa a propriedade if (formData.cep && formData.cep.length === 8) {
-    if (formData.cep?.length === 8) {
-      fetchCep(formData.cep);
+    if (formData.cep?.length === 10) {
+      fetchCep(maskCep(formData.cep));
     }
   }, [formData.cep])
 
@@ -91,6 +99,7 @@ function App() {
             label='CEP'
             id='cep'
             type='text'
+            value={formData.cep}
             handleChange={handleChange}
           />
 

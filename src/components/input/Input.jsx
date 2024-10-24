@@ -1,4 +1,4 @@
-export  const Input = ({ inputSize = 6, label, id, type = 'text', value, ref, handleChange }) => {
+export const Input = ({ inputSize = 6, label, id, type = 'text', value, ref, handleChange }) => {
 
     return (
         <div className={`col-md-${inputSize}`}>
