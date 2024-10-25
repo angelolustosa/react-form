@@ -9,6 +9,7 @@ import { maskCep } from './util/cep';
 function App() {
   const inputRef = useRef(null);
   const [formData, setFormData] = useState({});
+  const [estados, setEstados] = useState([]);
 
 
   const handleChange = (e) => {
@@ -19,7 +20,6 @@ function App() {
       setFormData({ ...formData, cep: maskCep(value) })
     } else {
       setFormData({ ...formData, [id]: value })
-
     }
   }
 
@@ -38,7 +38,8 @@ function App() {
       setFormData({
         ...formData,
         endereco: data.street,
-        bairro: data.neighborhood
+        bairro: data.neighborhood,
+        estado: data.state
       })
     } catch (error) {
       console.log('error', error);
@@ -51,6 +52,24 @@ function App() {
       fetchCep(maskCep(formData.cep));
     }
   }, [formData.cep])
+
+  const fetchEstados = async (cep) => {
+    try {
+      const response = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados`)
+
+      const data = response.data;
+      console.log('estados:', data.sort((a, b) => a.nome.localeCompare(b.nome)));
+
+      setEstados(data)
+    } catch (error) {
+      console.log('error', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchEstados()
+  }, [])
+
 
   return (
     <>
@@ -138,6 +157,10 @@ function App() {
             label='Estado'
             id='estado'
             value={formData.estado}
+            options={estados.map(item => ({
+              value: item.sigla,
+              label: item.nome
+            }))}
             handleChange={handleChange}
           />
 
